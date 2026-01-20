@@ -10,6 +10,7 @@ module hospital.hospital_management_system2 {
     requires org.kordamp.bootstrapfx.core;
     requires eu.hansolo.tilesfx;
     requires com.almasb.fxgl.all;
+    requires java.sql;
 
     opens hospital.hospital_management_system2 to javafx.fxml;
     exports hospital.hospital_management_system2;
