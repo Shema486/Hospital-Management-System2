@@ -10,9 +10,9 @@ public class Doctor {
     private String specialization;
     private String email;
     private String phone;
-    private Department department;
+    private int department;
 
-    public Doctor(int doctorId, String firstName, String lastName, LocalDate dob, String specialization, String email, String phone, Department department) {
+    public Doctor(int doctorId, String firstName, String lastName, LocalDate dob, String specialization, String email, String phone, int department) {
         this.doctorId = doctorId;
         this.firstName = firstName;
         this.lastName = lastName;
@@ -23,7 +23,7 @@ public class Doctor {
         this.department = department;
     }
 
-    public Doctor(String firstName, String lastName, LocalDate dob, String specialization, String email, String phone, Department department) {
+    public Doctor(String firstName, String lastName, LocalDate dob, String specialization, String email, String phone, int department) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.dob = dob;
@@ -79,23 +79,11 @@ public class Doctor {
     public void setPhone(String phone) {
         this.phone = phone;}
 
-    public Department getDepartment() {
+    public int getDepartment() {
         return department;}
 
-    public void setDepartment(Department department) {
+    public void setDepartment(int department) {
         this.department = department;}
 
-    @Override
-    public String toString() {
-        return "Doctor{" +
-                "doctorId=" + doctorId +
-                ", firstName='" + firstName + '\'' +
-                ", lastName='" + lastName + '\'' +
-                ", dob=" + dob +
-                ", specialization='" + specialization + '\'' +
-                ", email='" + email + '\'' +
-                ", phone='" + phone + '\'' +
-                ", department=" + department +
-                '}';
-    }
+
 }
