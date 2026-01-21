@@ -3,75 +3,52 @@ package hospital.hospital_management_system2.model;
 import java.time.LocalDate;
 
 public class PatientFeedback {
-    private int feedback;
-    private int patientId;
+
+    private Long feedbackId;
+    private long patient;
     private int rating;
     private String comments;
     private LocalDate feedbackDate;
 
-    public PatientFeedback(int feedback, int patientId, int rating, String comments, LocalDate feedbackDate) {
-        this.feedback = feedback;
-        this.patientId = patientId;
+    // Empty constructor (required)
+    public PatientFeedback() {}
+
+    // Full constructor
+    public PatientFeedback(Long feedbackId, Long patient, int rating,
+                           String comments, LocalDate feedbackDate) {
+        this.feedbackId = feedbackId;
+        this.patient = patient;
         this.rating = rating;
         this.comments = comments;
         this.feedbackDate = feedbackDate;
     }
 
-    public PatientFeedback(int patientId, int rating, String comments, LocalDate feedbackDate) {
-        this.patientId = patientId;
+    // Constructor without ID (for INSERT)
+    public PatientFeedback(Long patient, int rating, String comments) {
+        this.patient = patient;
         this.rating = rating;
         this.comments = comments;
-        this.feedbackDate = feedbackDate;
+        this.feedbackDate = LocalDate.now();
     }
 
-    public int getFeedback() {
-        return feedback;
-    }
+    // Getters
+    public Long getFeedbackId() { return feedbackId; }
+    public Long getPatientId() {return patient ;}
+    public int getRating() { return rating; }
+    public String getComments() { return comments; }
+    public LocalDate getFeedbackDate() { return feedbackDate; }
 
-    public void setFeedback(int feedback) {
-        this.feedback = feedback;
-    }
 
-    public int getPatientId() {
-        return patientId;
-    }
-
-    public void setPatientId(int patientId) {
-        this.patientId = patientId;
-    }
-
-    public int getRating() {
-        return rating;
-    }
-
-    public void setRating(int rating) {
-        this.rating = rating;
-    }
-
-    public String getComments() {
-        return comments;
-    }
-
-    public void setComments(String comments) {
-        this.comments = comments;
-    }
-
-    public LocalDate getFeedbackDate() {
-        return feedbackDate;
-    }
-
-    public void setFeedbackDate(LocalDate feedbackDate) {
-        this.feedbackDate = feedbackDate;
-    }
 
     @Override
     public String toString() {
         return "PatientFeedback{" +
-                "feedback=" + feedback +
-                ", patientId=" + patientId +
+                "feedbackId=" + feedbackId +
+                ", patientId=" + getPatientId() +
                 ", rating=" + rating +
                 ", comments='" + comments + '\'' +
                 ", feedbackDate=" + feedbackDate +
                 '}';
     }
 }
+

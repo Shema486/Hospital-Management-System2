@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml"
+      fx:controller="hospital.hospital_management_system2.controller.FeedbackController"
+      spacing="10" styleClass="page">
+
+    <Label text="Patient Feedback Management" styleClass="section-title"/>
+
+    <!-- Table -->
+    <TableView fx:id="feedbackTable" VBox.vgrow="ALWAYS" prefHeight="400">
+        <columns>
+            <TableColumn fx:id="colId" text="ID" prefWidth="60"/>
+            <TableColumn fx:id="colPatientName" text="Patient Name" prefWidth="150"/>
+            <TableColumn fx:id="colRating" text="Rating" prefWidth="80"/>
+            <TableColumn fx:id="colComments" text="Comments" prefWidth="350"/>
+            <TableColumn fx:id="colDate" text="Date" prefWidth="150"/>
+        </columns>
+    </TableView>
+
+    <!-- Form Section -->
+    <GridPane hgap="8" vgap="8" styleClass="form-section">
+        <Label text="Patient:" GridPane.columnIndex="0" GridPane.rowIndex="0" styleClass="label-subtitle"/>
+        <ComboBox fx:id="cbPatient" promptText="Select Patient" GridPane.columnIndex="1" GridPane.rowIndex="0" prefWidth="200" prefHeight="28"/>
+
+        <Label text="Rating (1-5):" GridPane.columnIndex="0" GridPane.rowIndex="1" styleClass="label-subtitle"/>
+        <ComboBox fx:id="cbRating" GridPane.columnIndex="1" GridPane.rowIndex="1" prefWidth="200" prefHeight="28"/>
+
+        <Label text="Comments:" GridPane.columnIndex="0" GridPane.rowIndex="2" styleClass="label-subtitle"/>
+        <TextArea fx:id="txtComments" GridPane.columnIndex="1" GridPane.rowIndex="2" prefWidth="200" prefHeight="60"/>
+    </GridPane>
+
+    <!-- Buttons -->
+    <HBox spacing="8" alignment="CENTER">
+        <Button text="Add" onAction="#addFeedback" prefWidth="80" prefHeight="28"/>
+        <Button text="Delete" onAction="#deleteFeedback" prefWidth="80" prefHeight="28" styleClass="btn-danger"/>
+        <Button text="Clear" onAction="#clearFields" prefWidth="80" prefHeight="28" styleClass="btn-ghost"/>
+    </HBox>
+
+</VBox>
