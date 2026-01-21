@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml"
+      fx:controller="hospital.hospital_management_system2.controller.PrescriptionController"
+      spacing="10" styleClass="page">
+
+    <Label text="Prescription Management" styleClass="section-title"/>
+
+    <!-- Table -->
+    <TableView fx:id="prescriptionTable" VBox.vgrow="ALWAYS" prefHeight="400">
+        <columns>
+            <TableColumn fx:id="colId" text="ID" prefWidth="80"/>
+            <TableColumn fx:id="colAppointment" text="Appointment" prefWidth="250"/>
+            <TableColumn fx:id="colDate" text="Date" prefWidth="180"/>
+            <TableColumn fx:id="colNotes" text="Notes" prefWidth="300"/>
+        </columns>
+    </TableView>
+
+    <!-- Form Section -->
+    <GridPane hgap="8" vgap="8" styleClass="form-section">
+        <Label text="Appointment:" GridPane.columnIndex="0" GridPane.rowIndex="0" styleClass="label-subtitle"/>
+        <ComboBox fx:id="cbAppointment" GridPane.columnIndex="1" GridPane.rowIndex="0" prefWidth="350" prefHeight="28"/>
+
+        <Label text="Notes:" GridPane.columnIndex="0" GridPane.rowIndex="1" styleClass="label-subtitle"/>
+        <TextArea fx:id="txtNotes" GridPane.columnIndex="1" GridPane.rowIndex="1" prefWidth="350" prefHeight="60"/>
+    </GridPane>
+
+    <!-- Buttons -->
+    <HBox spacing="8" alignment="CENTER">
+        <Button text="Add" onAction="#addPrescription" prefWidth="80" prefHeight="28"/>
+        <Button text="Update" onAction="#updatePrescription" prefWidth="80" prefHeight="28" styleClass="btn-secondary"/>
+        <Button text="Delete" onAction="#deletePrescription" prefWidth="80" prefHeight="28" styleClass="btn-danger"/>
+        <Button text="Clear" onAction="#clearFields" prefWidth="80" prefHeight="28" styleClass="btn-ghost"/>
+    </HBox>
+
+</VBox>

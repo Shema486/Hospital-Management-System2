@@ -3,37 +3,37 @@ package hospital.hospital_management_system2.model;
 import java.time.LocalDateTime;
 
 public class Prescription {
-    private int prescriptionId;
-    private int appointmentId;
+    private Long prescriptionId;
+    private Long appointmentId;
     private LocalDateTime prescriptionDate;
     private String notes;
 
-    public Prescription(int prescriptionId, int appointmentId, LocalDateTime prescriptionDate, String notes) {
+    public Prescription(Long prescriptionId, Long appointmentId, LocalDateTime prescriptionDate, String notes) {
         this.prescriptionId = prescriptionId;
         this.appointmentId = appointmentId;
         this.prescriptionDate = prescriptionDate;
         this.notes = notes;
     }
 
-    public Prescription(int appointmentId, LocalDateTime prescriptionDate, String notes) {
+    public Prescription(Long appointmentId, LocalDateTime prescriptionDate, String notes) {
         this.appointmentId = appointmentId;
         this.prescriptionDate = prescriptionDate;
         this.notes = notes;
     }
 
-    public int getPrescriptionId() {
+    public Long getPrescriptionId() {
         return prescriptionId;
     }
 
-    public void setPrescriptionId(int prescriptionId) {
+    public void setPrescriptionId(Long prescriptionId) {
         this.prescriptionId = prescriptionId;
     }
 
-    public int getAppointmentId() {
+    public Long getAppointmentId() {
         return appointmentId;
     }
 
-    public void setAppointmentId(int appointmentId) {
+    public void setAppointmentId(Long appointmentId) {
         this.appointmentId = appointmentId;
     }
 
