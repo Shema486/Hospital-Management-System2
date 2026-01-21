@@ -8,26 +8,26 @@ public class Patient {
     private String lastName;
     private LocalDate dob;
     private String gender;
-    private String address;
     private String contactNumber;
+    private String address;
 
-    public Patient(Long patientId, String firstName, String lastName, LocalDate dob, String gender, String address, String contactNumber) {
+    public Patient(Long patientId, String firstName, String lastName, LocalDate dob, String gender,  String contactNumber,String address) {
         this.patientId = patientId;
         this.firstName = firstName;
         this.lastName = lastName;
         this.dob = dob;
         this.gender = gender;
-        this.address = address;
         this.contactNumber = contactNumber;
+        this.address = address;
     }
 
-    public Patient(String firstName, String lastName, LocalDate dob, String gender, String address, String contactNumber) {
+    public Patient(String firstName, String lastName, LocalDate dob, String gender,  String contactNumber,String address) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.dob = dob;
         this.gender = gender;
-        this.address = address;
         this.contactNumber = contactNumber;
+        this.address = address;
     }
 
     public Patient(Long patientId) {

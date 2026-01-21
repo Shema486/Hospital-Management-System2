@@ -38,13 +38,13 @@ public class PatientDao {
             e.printStackTrace();
         }
     }
-    public List<Patient> searchPatientByLastName(String last_name){
+    public List<Patient> searchPatientByLastName(String lastName){
         List<Patient> patients = new ArrayList<>();
         String sql = "SELECT * FROM patients WHERE last_name ILIKE ?";
         try(Connection conn = DBConnection.getConnection();
             PreparedStatement ps = conn.prepareStatement(sql)) {
 
-            ps.setString(1, "%" +last_name + "%");
+            ps.setString(1, "%" +lastName + "%");
 
             try(ResultSet rs = ps.executeQuery()) {
                 while (rs.next()) {
@@ -110,19 +110,8 @@ public class PatientDao {
         }
     }
 
-    private Patient mapRowToPatient(ResultSet rs) throws SQLException {
-        return new Patient(
-                rs.getLong("patient_id"),
-                rs.getString("first_name"),
-                rs.getString("last_name"),
-                rs.getDate("dob").toLocalDate(),
-                rs.getString("gender"),
-                rs.getString("contact_number"),
-                rs.getString("address")
-        );
-    }
-    public Patient searchPatientById(long patientId) {
 
+    public Patient searchPatientById(long patientId) {
         String sql = "SELECT * FROM patients WHERE patient_id = ?";
 
         try (Connection conn = DBConnection.getConnection();
@@ -141,5 +130,55 @@ public class PatientDao {
         }
 
         return null;
+    }
+    public List<Patient> getPatientsPaginated(int limit, int offset){
+        List<Patient> patients = new ArrayList<>();
+        String sql = "SELECT * FROM patients ORDER BY patient_id LIMIT ? OFFSET ?";
+
+
+        try (Connection conn = DBConnection.getConnection();
+             PreparedStatement ps = conn.prepareStatement(sql)) {
+
+            ps.setInt(1, limit);
+            ps.setInt(2, offset);
+
+            try (ResultSet rs = ps.executeQuery()) {
+                while (rs.next()) {
+                    patients.add(mapRowToPatient(rs));
+                }
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return patients;
+    }
+    public boolean contactExistsInPatients(String contactNumber, long excludePatientId) {
+        String sql = "SELECT COUNT(*) FROM patients WHERE contact_number = ? AND patient_id != ?";
+        try (Connection conn = DBConnection.getConnection();
+             PreparedStatement ps = conn.prepareStatement(sql)) {
+            ps.setString(1, contactNumber);
+            ps.setLong(2, excludePatientId);
+            try (ResultSet rs = ps.executeQuery()) {
+                if (rs.next()) {
+                    return rs.getInt(1) > 0;
+                }
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return false;
+    }
+    private Patient mapRowToPatient(ResultSet rs) throws SQLException {
+        return new Patient(
+                rs.getLong("patient_id"),
+                rs.getString("first_name"),
+                rs.getString("last_name"),
+                rs.getDate("dob").toLocalDate(),
+                rs.getString("gender"),
+                rs.getString("contact_number"),
+                rs.getString("address")
+        );
     }
 }
