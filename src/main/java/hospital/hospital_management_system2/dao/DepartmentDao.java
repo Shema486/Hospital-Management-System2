@@ -19,6 +19,7 @@ public class DepartmentDao {
 
             ps.setString(1, department.getDeptName());
             ps.setInt(2, department.getLocationFloor());
+            ps.executeUpdate();
             System.out.println("Department added successfully: ");
 
         } catch (SQLException e) {
@@ -29,7 +30,7 @@ public class DepartmentDao {
 
     public List<Department> getAllDepartment(){
         List<Department> list = new ArrayList<>();
-        String sql = "SELECT * FROM department";
+        String sql = "SELECT * FROM departments";
         try(Connection conn = DBConnection.getConnection();
             PreparedStatement ps = conn.prepareStatement(sql)){
             try(ResultSet rs = ps.executeQuery()){
@@ -72,7 +73,7 @@ public class DepartmentDao {
 
     public Department mapToDepartment(ResultSet rs)throws SQLException{
         return new Department(
-                rs.getInt("dept_id"),
+                rs.getLong("dept_id"),
                 rs.getInt("location_floor"),
                 rs.getString("dept_name")
         );
