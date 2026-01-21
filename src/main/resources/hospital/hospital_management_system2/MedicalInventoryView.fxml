@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="600" prefWidth="800" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/17.0.12" fx:controller="hospital.hospital_management_system2.controller.MedicalInventoryController">
+
+    <VBox spacing="15" AnchorPane.bottomAnchor="0" AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0" AnchorPane.topAnchor="0">
+        <padding>
+            <Insets bottom="10" left="10" right="10" top="10" />
+        </padding>
+
+        <!-- Title -->
+        <Label styleClass="section-title" text="Medical Inventory Management" />
+
+        <!-- Inventory Table -->
+        <TableView fx:id="inventoryTable" prefHeight="400" VBox.vgrow="ALWAYS">
+            <columns>
+                <TableColumn fx:id="colId" prefWidth="100" text="ID" />
+                <TableColumn fx:id="colName" prefWidth="250" text="Medicine Name" />
+                <TableColumn fx:id="colQuantity" prefWidth="100" text="Quantity" />
+                <TableColumn fx:id="colPrice" prefWidth="150" text="Price" />
+            </columns>
+        </TableView>
+
+        <!-- Form -->
+        <GridPane hgap="10" vgap="10">
+            <columnConstraints>
+                <ColumnConstraints percentWidth="25" />
+                <ColumnConstraints percentWidth="25" />
+                <ColumnConstraints percentWidth="25" />
+                <ColumnConstraints percentWidth="25" />
+            </columnConstraints>
+
+            <GridPane hgap="10" vgap="8">
+
+                <!-- Medicine Name -->
+                <Label text="Medicine Name:" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+                <TextField fx:id="txtName" prefWidth="150"
+                           GridPane.rowIndex="0" GridPane.columnIndex="1"/>
+
+                <!-- Quantity -->
+                <Label text="Quantity:" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+                <TextField fx:id="txtQuantity" prefWidth="150"
+                           GridPane.rowIndex="1" GridPane.columnIndex="1"/>
+
+                <!-- Price -->
+                <Label text="Price:" GridPane.rowIndex="2" GridPane.columnIndex="0"/>
+                <TextField fx:id="txtPrice" prefWidth="150"
+                           GridPane.rowIndex="2" GridPane.columnIndex="1"/>
+
+            </GridPane>
+
+            <rowConstraints>
+            <RowConstraints />
+            <RowConstraints />
+         </rowConstraints>
+        </GridPane>
+
+        <!-- Buttons -->
+        <HBox alignment="CENTER_LEFT" spacing="10">
+            <Button onAction="#addItem" prefWidth="80" text="Add" />
+            <Button onAction="#updateItem" prefWidth="80" styleClass="btn-secondary" text="Update" />
+            <Button onAction="#deleteItem" prefWidth="80" styleClass="btn-danger" text="Delete" />
+            <Button onAction="#clearFields" prefWidth="80" styleClass="btn-ghost" text="Clear" />
+        </HBox>
+    </VBox>
+</AnchorPane>

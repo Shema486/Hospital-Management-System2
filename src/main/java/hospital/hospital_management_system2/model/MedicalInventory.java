@@ -1,29 +1,29 @@
 package hospital.hospital_management_system2.model;
 
 public class MedicalInventory {
- private int itemId;
+ private Long itemId;
  private String itemName;
  private int StockQuantity;
- private int unitPrice;
+ private double unitPrice;
 
-    public MedicalInventory(int itemId, String itemName, int stockQuantity, int unitPrice) {
+    public MedicalInventory(Long itemId, String itemName, int stockQuantity, double unitPrice) {
         this.itemId = itemId;
         this.itemName = itemName;
         StockQuantity = stockQuantity;
         this.unitPrice = unitPrice;
     }
 
-    public MedicalInventory(String itemName, int stockQuantity, int unitPrice) {
+    public MedicalInventory(String itemName, int stockQuantity, double unitPrice) {
         this.itemName = itemName;
         this.StockQuantity = stockQuantity;
         this.unitPrice = unitPrice;
     }
 
-    public int getItemId() {
+    public Long getItemId() {
         return itemId;
     }
 
-    public void setItemId(int itemId) {
+    public void setItemId(Long itemId) {
         this.itemId = itemId;
     }
 
@@ -43,11 +43,11 @@ public class MedicalInventory {
         StockQuantity = stockQuantity;
     }
 
-    public int getUnitPrice() {
+    public double getUnitPrice() {
         return unitPrice;
     }
 
-    public void setUnitPrice(int unitPrice) {
+    public void setUnitPrice(double unitPrice) {
         this.unitPrice = unitPrice;
     }
 
