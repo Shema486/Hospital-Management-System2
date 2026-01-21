@@ -46,7 +46,7 @@ public class DoctorDao {
         return doctors;
     }
     public void updateDoctor(Doctor doctor){
-        String sql = "UPDATE doctors SET first_name = ?, last_name = ?, email = ?, specialization = ?, phone = ?, dept_id = ? WHERE doctor_id = ? ";
+        String sql = "UPDATE doctors SET first_name = ?, last_name = ?, email = ?, specialization = ?, phone = ? WHERE doctor_id = ? ";
         try (Connection conn = DBConnection.getConnection();
              PreparedStatement ps = conn.prepareStatement(sql)){
 
@@ -55,7 +55,7 @@ public class DoctorDao {
             ps.setString(3, doctor.getEmail());
             ps.setString(4, doctor.getSpecialization());
             ps.setString(5, doctor.getPhone());
-            ps.setLong(7,doctor.getDoctorId());
+            ps.setLong(6,doctor.getDoctorId());
 
             ps.executeUpdate();
         }catch (SQLException e){
@@ -113,13 +113,46 @@ public class DoctorDao {
 
         return doctors;
     }
+    public boolean emailExists(String email, long excludeDoctorId) {
+        String sql = "SELECT COUNT(*) FROM doctors WHERE email = ? AND doctor_id != ?";
+        try (Connection conn = DBConnection.getConnection();
+             PreparedStatement ps = conn.prepareStatement(sql)) {
+            ps.setString(1, email);
+            ps.setLong(2, excludeDoctorId);
+            try (ResultSet rs = ps.executeQuery()) {
+                if (rs.next()) {
+                    return rs.getInt(1) > 0;
+                }
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return false;
+    }
+
+    public boolean contactExistsInDoctors(String contactNumber, long excludeDoctorId) {
+        String sql = "SELECT COUNT(*) FROM doctors WHERE phone = ? AND doctor_id != ?";
+        try (Connection conn = DBConnection.getConnection();
+             PreparedStatement ps = conn.prepareStatement(sql)) {
+            ps.setString(1, contactNumber);
+            ps.setLong(2, excludeDoctorId);
+            try (ResultSet rs = ps.executeQuery()) {
+                if (rs.next()) {
+                    return rs.getInt(1) > 0;
+                }
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return false;
+    }
     private Doctor mapRowToDoctor(ResultSet rs) throws SQLException {
         return new Doctor(
                 rs.getLong("doctor_id"),
                 rs.getString("first_name"),
                 rs.getString("last_name"),
-                rs.getString("email"),
                 rs.getString("specialization"),
+                rs.getString("email"),
                 rs.getString("phone"),
                 rs.getLong("dept_id")
         );
