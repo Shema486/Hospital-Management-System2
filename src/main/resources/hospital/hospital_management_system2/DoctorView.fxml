@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml"
+      fx:controller="hospital.hospital_management_system2.controller.DoctorController"
+      spacing="10" styleClass="page">
+
+    <Label text="Doctor Management" styleClass="section-title"/>
+
+    <!-- Search Section -->
+    <HBox spacing="8" alignment="CENTER_LEFT" styleClass="toolbar">
+        <TextField fx:id="txtSearch" promptText="Search by specialization..." prefWidth="200" prefHeight="28"/>
+        <Button text="Search" onAction="#searchDoctor" prefWidth="70" prefHeight="28"/>
+    </HBox>
+
+    <!-- Table -->
+    <VBox spacing="8">
+        <TableView fx:id="doctorTable" VBox.vgrow="ALWAYS" prefHeight="350">
+            <columns>
+                <TableColumn fx:id="colId" text="ID" prefWidth="50"/>
+                <TableColumn fx:id="colFirstName" text="First Name" prefWidth="120"/>
+                <TableColumn fx:id="colLastName" text="Last Name" prefWidth="120"/>
+                <TableColumn fx:id="colEmail" text="Email" prefWidth="150"/>
+                <TableColumn fx:id="colSpecialization" text="Specialization" prefWidth="180"/>
+                <TableColumn fx:id="colPhone" text="Phone" prefWidth="120"/>
+            </columns>
+        </TableView>
+<!--        <Pagination fx:id="pagination" VBox.vgrow="NEVER" maxPageIndicatorCount="5"/>-->
+    </VBox>
+
+    <!-- Form Section -->
+    <GridPane hgap="8" vgap="8" styleClass="form-section">
+        <Label text="First Name:" GridPane.columnIndex="0" GridPane.rowIndex="0" styleClass="label-subtitle"/>
+        <TextField fx:id="txtFirstName" GridPane.columnIndex="1" GridPane.rowIndex="0" prefWidth="150" prefHeight="28"/>
+
+        <Label text="Last Name:" GridPane.columnIndex="0" GridPane.rowIndex="1" styleClass="label-subtitle"/>
+        <TextField fx:id="txtLastName" GridPane.columnIndex="1" GridPane.rowIndex="1" prefWidth="150" prefHeight="28"/>
+
+        <Label text="Specialization:" GridPane.columnIndex="2" GridPane.rowIndex="0" styleClass="label-subtitle"/>
+        <TextField fx:id="txtSpecialization" GridPane.columnIndex="3" GridPane.rowIndex="0" prefWidth="150" prefHeight="28"/>
+
+        <Label text="Email:" GridPane.columnIndex="0" GridPane.rowIndex="2" styleClass="label-subtitle"/>
+        <TextField fx:id="txtEmail" GridPane.columnIndex="1" GridPane.rowIndex="2" prefWidth="150" prefHeight="28"/>
+
+
+        <Label text="Phone:" GridPane.columnIndex="2" GridPane.rowIndex="1" styleClass="label-subtitle"/>
+        <TextField fx:id="txtPhone" GridPane.columnIndex="3" GridPane.rowIndex="1" prefWidth="150" prefHeight="28"/>
+
+        <Label text="Department:" GridPane.columnIndex="2" GridPane.rowIndex="2" styleClass="label-subtitle"/>
+        <ComboBox fx:id="cbDepartment" GridPane.columnIndex="3" GridPane.rowIndex="2" prefWidth="150" prefHeight="28"/>
+    </GridPane>
+
+    <!-- Buttons -->
+    <HBox spacing="8" alignment="CENTER">
+        <Button text="Add" onAction="#addDoctor" prefWidth="80" prefHeight="28"/>
+        <Button text="Update" onAction="#updateDoctor" prefWidth="80" prefHeight="28" styleClass="btn-secondary"/>
+        <Button text="Delete" onAction="#deleteDoctor" prefWidth="80" prefHeight="28" styleClass="btn-danger"/>
+        <Button text="Clear" onAction="#clearFields" prefWidth="80" prefHeight="28" styleClass="btn-ghost"/>
+    </HBox>
+
+</VBox>
