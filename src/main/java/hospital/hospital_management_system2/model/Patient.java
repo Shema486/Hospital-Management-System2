@@ -3,7 +3,7 @@ package hospital.hospital_management_system2.model;
 import java.time.LocalDate;
 
 public class Patient {
-    private int patientId;
+    private Long patientId;
     private String firstName;
     private String lastName;
     private LocalDate dob;
@@ -11,7 +11,7 @@ public class Patient {
     private String address;
     private String contactNumber;
 
-    public Patient(int patientId, String firstName, String lastName, LocalDate dob, String gender, String address, String contactNumber) {
+    public Patient(Long patientId, String firstName, String lastName, LocalDate dob, String gender, String address, String contactNumber) {
         this.patientId = patientId;
         this.firstName = firstName;
         this.lastName = lastName;
@@ -30,15 +30,15 @@ public class Patient {
         this.contactNumber = contactNumber;
     }
 
-    public Patient(int patientId) {
+    public Patient(Long patientId) {
         this.patientId = patientId;
     }
 
-    public int getPatientId() {
+    public Long getPatientId() {
         return patientId;
     }
 
-    public void setPatientId(int patientId) {
+    public void setPatientId(Long patientId) {
         this.patientId = patientId;
     }
 
@@ -66,11 +66,11 @@ public class Patient {
         this.dob = dob;
     }
 
-    public String getString() {
+    public String getGender() {
         return gender;
     }
 
-    public void setString(String gender) {
+    public void setGender(String gender) {
         this.gender = gender;
     }
 

@@ -1,7 +1,7 @@
 package hospital.hospital_management_system2.model;
 
 public class Department {
-    private int deptId;
+    private Long deptId;
     private String deptName;
     private int locationFloor;
 
@@ -10,18 +10,18 @@ public class Department {
         this.deptName = deptName;
     }
 
-    public Department(int deptId, int locationFloor, String deptName) {
+    public Department(Long deptId, int locationFloor, String deptName) {
         this.deptId = deptId;
         this.locationFloor = locationFloor;
         this.deptName = deptName;
     }
 
-    public Department(int deptId) {
+    public Department(Long deptId) {
         this.deptId = deptId;
     }
 
-    public int getDeptId() {return deptId;}
-    public void setDeptId(int deptId) {this.deptId = deptId;}
+    public Long getDeptId() {return deptId;}
+    public void setDeptId(Long deptId) {this.deptId = deptId;}
     public int getLocationFloor() {return locationFloor;}
     public void setLocationFloor(int locationFloor) {this.locationFloor = locationFloor;}
     public String getDeptName() {return deptName;}

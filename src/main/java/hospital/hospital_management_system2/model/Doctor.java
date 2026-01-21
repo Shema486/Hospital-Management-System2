@@ -3,44 +3,41 @@ package hospital.hospital_management_system2.model;
 import java.time.LocalDate;
 
 public class Doctor {
-    private int doctorId;
+    private Long doctorId;
     private String firstName;
     private String lastName;
-    private LocalDate dob;
     private String specialization;
     private String email;
     private String phone;
-    private int department;
+    private  long department;
 
-    public Doctor(int doctorId, String firstName, String lastName, LocalDate dob, String specialization, String email, String phone, int department) {
+    public Doctor(Long doctorId, String firstName, String lastName, String specialization, String email, String phone, Long department) {
         this.doctorId = doctorId;
         this.firstName = firstName;
         this.lastName = lastName;
-        this.dob = dob;
         this.specialization = specialization;
         this.email = email;
         this.phone = phone;
         this.department = department;
     }
 
-    public Doctor(String firstName, String lastName, LocalDate dob, String specialization, String email, String phone, int department) {
+    public Doctor(String firstName, String lastName, LocalDate dob, String specialization, String email, String phone, Long department) {
         this.firstName = firstName;
         this.lastName = lastName;
-        this.dob = dob;
         this.specialization = specialization;
         this.email = email;
         this.phone = phone;
         this.department = department;
     }
 
-    public Doctor(int doctorId) {
+    public Doctor(Long doctorId) {
         this.doctorId = doctorId;
     }
 
-    public int getDoctorId() {
+    public Long getDoctorId() {
         return doctorId;}
 
-    public void setDoctorId(int doctorId) {
+    public void setDoctorId(Long doctorId) {
         this.doctorId = doctorId;}
 
     public String getFirstName() {
@@ -54,12 +51,6 @@ public class Doctor {
 
     public void setLastName(String lastName) {
         this.lastName = lastName;}
-
-    public LocalDate getDob() {
-        return dob;}
-
-    public void setDob(LocalDate dob) {
-        this.dob = dob;}
 
     public String getSpecialization() {
         return specialization;}
@@ -79,10 +70,10 @@ public class Doctor {
     public void setPhone(String phone) {
         this.phone = phone;}
 
-    public int getDepartment() {
+    public Long getDepartment() {
         return department;}
 
-    public void setDepartment(int department) {
+    public void setDepartment(Long department) {
         this.department = department;}
 
 
