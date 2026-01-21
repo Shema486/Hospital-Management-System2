@@ -1,31 +1,37 @@
 package hospital.hospital_management_system2.model;
 
 public class PrescriptionItem {
-    private int prescriptionId;
-    private int itemId;
+
+    private Long prescriptionId;
+    private Long itemId;
     private String dosageInstruction;
     private int quantityDispensed;
 
-    public PrescriptionItem(int prescriptionId, int itemId, String dosageInstruction, int quantityDispensed) {
+    public PrescriptionItem() {}
+
+    public PrescriptionItem(Long prescriptionId,
+                             Long itemId,
+                             String dosageInstruction,
+                             int quantityDispensed) {
         this.prescriptionId = prescriptionId;
         this.itemId = itemId;
         this.dosageInstruction = dosageInstruction;
         this.quantityDispensed = quantityDispensed;
     }
 
-    public int getPrescriptionId() {
+    public Long getPrescriptionId() {
         return prescriptionId;
     }
 
-    public void setPrescriptionId(int prescriptionId) {
+    public void setPrescriptionId(Long prescriptionId) {
         this.prescriptionId = prescriptionId;
     }
 
-    public int getItemId() {
+    public Long getItemId() {
         return itemId;
     }
 
-    public void setItemId(int itemId) {
+    public void setItemId(Long itemId) {
         this.itemId = itemId;
     }
 
@@ -47,7 +53,7 @@ public class PrescriptionItem {
 
     @Override
     public String toString() {
-        return "PrescriptionItem{" +
+        return "PrescriptionItems{" +
                 "prescriptionId=" + prescriptionId +
                 ", itemId=" + itemId +
                 ", dosageInstruction='" + dosageInstruction + '\'' +

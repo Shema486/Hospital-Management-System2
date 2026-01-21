@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml"
+      fx:controller="hospital.hospital_management_system2.controller.PrescriptionItemController"
+      spacing="10" styleClass="page">
+
+    <Label text="Prescription Items" styleClass="section-title"/>
+
+    <Separator/>
+
+    <!-- Prescription Selection -->
+    <HBox spacing="10" alignment="CENTER_LEFT" styleClass="toolbar">
+        <Label text="Select Prescription:" styleClass="label-subtitle" prefWidth="120"/>
+        <ComboBox fx:id="cbPrescription" prefWidth="250"/>
+    </HBox>
+
+    <!-- Items Table -->
+    <Label text="Medicines in Prescription" styleClass="label-title"/>
+    <TableView fx:id="itemTable" VBox.vgrow="ALWAYS" prefHeight="300">
+        <columns>
+            <TableColumn fx:id="colMedicine" text="Medicine Name" prefWidth="300"/>
+            <TableColumn fx:id="colDosage" text="Dosage Instructions" prefWidth="350"/>
+            <TableColumn fx:id="colQuantity" text="Quantity" prefWidth="100"/>
+        </columns>
+    </TableView>
+
+    <!-- Add Item Form -->
+    <VBox spacing="10" styleClass="form-section">
+        <Label text="Add Medicine to Prescription" styleClass="label-title"/>
+
+        <HBox spacing="10" alignment="CENTER_LEFT">
+            <Label text="Medicine:" prefWidth="100" styleClass="label-subtitle"/>
+            <ComboBox fx:id="cbMedicine" prefWidth="250"/>
+        </HBox>
+
+        <HBox spacing="10" alignment="CENTER_LEFT">
+            <Label text="Dosage:" prefWidth="100" styleClass="label-subtitle"/>
+            <TextField fx:id="txtDosage" promptText="e.g., Take 2 tablets daily" prefWidth="250"/>
+        </HBox>
+
+        <HBox spacing="10" alignment="CENTER_LEFT">
+            <Label text="Quantity:" prefWidth="100" styleClass="label-subtitle"/>
+            <Spinner fx:id="spinQuantity" prefWidth="100"/>
+        </HBox>
+
+        <HBox spacing="10">
+            <Button text="Add Medicine" onAction="#addItem" prefWidth="120" prefHeight="30"/>
+            <Button text="Remove Selected" onAction="#deleteItem" styleClass="btn-danger" prefWidth="120" prefHeight="30"/>
+            <Button text="Clear" onAction="#clearFields" prefWidth="80" prefHeight="30" styleClass="btn-ghost"/>
+        </HBox>
+    </VBox>
+</VBox>
