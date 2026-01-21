@@ -11,7 +11,7 @@ public class DoctorService {
     private final DoctorDao doctorDao = new DoctorDao();
     private final Map<Long, Doctor> doctorCache = new HashMap<>();
 
-    public void addPatient(Doctor doctor){
+    public void addDoctor(Doctor doctor){
         doctorDao.addDoctor(doctor);
         if(doctor.getDoctorId() != null){
             doctorCache.put(doctor.getDoctorId(),doctor);
@@ -47,5 +47,15 @@ public class DoctorService {
             doctorCache.put(d.getDoctorId(), d);
         }
         return doctors;
+    }
+    public boolean isEmailUnique(String email, long excludeDoctorId) {
+        return !doctorDao.emailExists(email, excludeDoctorId);
+    }
+    public boolean isContactNumberUnique(String contactNumber, long excludeDoctorId) {
+        if (doctorDao.contactExistsInDoctors(contactNumber, excludeDoctorId)) {
+            return false;
+        }
+
+        return true;
     }
 }
