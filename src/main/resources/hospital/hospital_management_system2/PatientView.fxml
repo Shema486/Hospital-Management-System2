@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane styleClass="page" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/17.0.12" fx:controller="hospital.hospital_management_system2.controller.PatientController">
+
+    <!-- TOP: Search -->
+    <top>
+        <VBox spacing="8">
+            <Label text="Patient Management" styleClass="section-title"/>
+            <HBox alignment="CENTER_LEFT" spacing="8" styleClass="toolbar">
+                <Label text="Search:" styleClass="label-subtitle"/>
+                <TextField fx:id="txtSearch" promptText="Last name" prefWidth="180" prefHeight="28"/>
+                <Button onAction="#searchPatient" text="Search" prefWidth="70" prefHeight="28"/>
+            </HBox>
+        </VBox>
+    </top>
+
+    <!-- CENTER: Table -->
+    <center>
+        <VBox spacing="8">
+            <TableView fx:id="patientTable" VBox.vgrow="ALWAYS" prefHeight="450">
+                <columns>
+                    <TableColumn fx:id="colId" prefWidth="50" text="ID" />
+                    <TableColumn fx:id="colFirstName" prefWidth="120" text="First Name" />
+                    <TableColumn fx:id="colLastName" prefWidth="120" text="Last Name" />
+                    <TableColumn fx:id="colDob" prefWidth="100" text="DOB" />
+                    <TableColumn fx:id="colGender" prefWidth="90" text="Gender" />
+                    <TableColumn fx:id="colContact" prefWidth="120" text="Contact" />
+                    <TableColumn fx:id="colAddress" prefWidth="180" text="Address" />
+                </columns>
+            </TableView>
+<!--            <Pagination fx:id="pagination" VBox.vgrow="NEVER" maxPageIndicatorCount="5"/>-->
+        </VBox>
+    </center>
+
+    <!-- BOTTOM: Form -->
+    <bottom>
+        <VBox spacing="8" styleClass="form-section">
+            <GridPane hgap="8" vgap="8">
+                <Label text="First Name:" GridPane.columnIndex="0" GridPane.rowIndex="0" styleClass="label-subtitle"/>
+                <TextField fx:id="txtFirstName" GridPane.columnIndex="1" GridPane.rowIndex="0" prefWidth="150" prefHeight="28"/>
+
+                <Label text="Last Name:" GridPane.columnIndex="2" GridPane.rowIndex="0" styleClass="label-subtitle"/>
+                <TextField fx:id="txtLastName" GridPane.columnIndex="3" GridPane.rowIndex="0" prefWidth="150" prefHeight="28"/>
+
+                <Label text="DOB:" GridPane.columnIndex="0" GridPane.rowIndex="1" styleClass="label-subtitle"/>
+                <DatePicker fx:id="dpDob" GridPane.columnIndex="1" GridPane.rowIndex="1" prefWidth="150" prefHeight="28"/>
+
+                <Label text="Gender:" GridPane.columnIndex="2" GridPane.rowIndex="1" styleClass="label-subtitle"/>
+                <ComboBox fx:id="cbGender" promptText="Select" GridPane.columnIndex="3" GridPane.rowIndex="1" prefWidth="150" prefHeight="28"/>
+
+                <Label text="Contact:" GridPane.columnIndex="0" GridPane.rowIndex="2" styleClass="label-subtitle"/>
+                <TextField fx:id="txtContact" GridPane.columnIndex="1" GridPane.rowIndex="2" prefWidth="150" prefHeight="28"/>
+
+                <Label text="Address:" GridPane.columnIndex="2" GridPane.rowIndex="2" styleClass="label-subtitle"/>
+                <TextField fx:id="txtAddress" GridPane.columnIndex="3" GridPane.rowIndex="2" prefWidth="150" prefHeight="28"/>
+            </GridPane>
+
+            <HBox alignment="CENTER_RIGHT" spacing="8">
+                <Button text="Add" onAction="#addPatient" prefWidth="80" prefHeight="28"/>
+                <Button text="Update" onAction="#updatePatient" prefWidth="80" prefHeight="28" styleClass="btn-secondary"/>
+                <Button text="Delete" onAction="#deletePatient" prefWidth="80" prefHeight="28" styleClass="btn-danger"/>
+                <Button text="Clear" onAction="#clearFields" prefWidth="80" prefHeight="28" styleClass="btn-ghost"/>
+            </HBox>
+        </VBox>
+    </bottom>
+
+</BorderPane>
+
