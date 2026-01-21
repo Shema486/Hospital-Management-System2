@@ -21,6 +21,9 @@ public class MainAppController {
     @FXML public void showDepartment(){
         loadView("DepartmentView.fxml");
     }
+    @FXML public void showDoctor(){
+        loadView("DoctorView.fxml");
+    }
     private void loadView(String fxmlFile) {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/hospital/hospital_management_system2/" + fxmlFile));
