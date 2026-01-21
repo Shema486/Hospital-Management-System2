@@ -6,8 +6,8 @@ public class Appointment {
     private Long appointmentId;
     private Long patientId;
     private Long doctorId;
-    private String patientName;  // New
-    private String doctorName;   // New
+    private String patientName;
+    private String doctorName;
     private LocalDateTime appointmentDate;
     private String status;
     private String reason;
@@ -75,4 +75,6 @@ public class Appointment {
                 ", reason='" + reason + '\'' +
                 '}';
     }
+
+
 }
