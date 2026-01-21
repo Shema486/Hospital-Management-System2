@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml"
+      fx:controller="hospital.hospital_management_system2.controller.DepartmentController"
+      spacing="10" styleClass="page">
+
+    <Label text="Department Management" styleClass="section-title"/>
+
+    <!-- Table -->
+    <TableView fx:id="departmentTable" VBox.vgrow="ALWAYS" prefHeight="450">
+        <columns>
+            <TableColumn fx:id="colId" text="ID" prefWidth="100"/>
+            <TableColumn fx:id="colName" text="Department Name" prefWidth="350"/>
+            <TableColumn fx:id="colFloor" text="Location Floor" prefWidth="100"/>
+        </columns>
+    </TableView>
+
+
+    <GridPane hgap="8" vgap="8" styleClass="form-section">
+        <Label text="Department Name:" GridPane.columnIndex="0" GridPane.rowIndex="0" styleClass="label-subtitle"/>
+        <TextField fx:id="textName" GridPane.columnIndex="1" GridPane.rowIndex="0" prefWidth="200" prefHeight="28"/>
+
+        <Label text="Floor:" GridPane.columnIndex="0" GridPane.rowIndex="1" styleClass="label-subtitle"/>
+        <TextField fx:id="textFloor" GridPane.columnIndex="1" GridPane.rowIndex="1" prefWidth="200" prefHeight="28"/>
+    </GridPane>
+
+
+    <HBox spacing="8" alignment="CENTER">
+        <Button text="Add" onAction="#addDepartment" prefWidth="80" prefHeight="28"/>
+        <Button text="Update" onAction="#updateDepartment" prefWidth="80" prefHeight="28" styleClass="btn-secondary"/>
+        <Button text="Delete" onAction="#deleteDepartment" prefWidth="80" prefHeight="28" styleClass="btn-danger"/>
+        <Button text="Clear" onAction="#clearFields" prefWidth="80" prefHeight="28" styleClass="btn-ghost"/>
+    </HBox>
+
+</VBox>
