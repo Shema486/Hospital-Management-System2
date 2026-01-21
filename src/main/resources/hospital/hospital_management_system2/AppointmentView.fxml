@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<AnchorPane xmlns:fx="http://javafx.com/fxml"
+            fx:controller="hospital.hospital_management_system2.controller.AppointmentController"
+            prefWidth="800" prefHeight="600">
+
+    <children>
+        <VBox spacing="10" AnchorPane.topAnchor="10" AnchorPane.leftAnchor="10" AnchorPane.rightAnchor="10" AnchorPane.bottomAnchor="10">
+
+            <!-- Appointment Form -->
+            <GridPane hgap="10" vgap="10">
+                <columnConstraints>
+                    <ColumnConstraints percentWidth="20"/>
+                    <ColumnConstraints percentWidth="30"/>
+                    <ColumnConstraints percentWidth="20"/>
+                    <ColumnConstraints percentWidth="30"/>
+                </columnConstraints>
+
+                <Label text="Patient:" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+                <ComboBox fx:id="cbPatient" GridPane.rowIndex="0" GridPane.columnIndex="1" prefWidth="200"/>
+
+                <Label text="Doctor:" GridPane.rowIndex="0" GridPane.columnIndex="2"/>
+                <ComboBox fx:id="cbDoctor" GridPane.rowIndex="0" GridPane.columnIndex="3" prefWidth="200"/>
+
+                <Label text="Date:" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+                <DatePicker fx:id="dpDate" GridPane.rowIndex="1" GridPane.columnIndex="1"/>
+
+                <Label text="Time (HH:mm):" GridPane.rowIndex="1" GridPane.columnIndex="2"/>
+                <TextField fx:id="tfTime" GridPane.rowIndex="1" GridPane.columnIndex="3"/>
+
+                <Label text="Status:" GridPane.rowIndex="2" GridPane.columnIndex="0"/>
+                <ComboBox fx:id="cbStatus" GridPane.rowIndex="2" GridPane.columnIndex="1"/>
+
+                <Label text="Reason:" GridPane.rowIndex="2" GridPane.columnIndex="2"/>
+                <TextField fx:id="tfReason" GridPane.rowIndex="2" GridPane.columnIndex="3"/>
+            </GridPane>
+
+            <!-- Buttons -->
+            <HBox spacing="10" alignment="CENTER_LEFT">
+                <Button text="Add Appointment" onAction="#addAppointment"/>
+                <Button text="Update Status" onAction="#updateAppointmentStatus"/>
+                <Button text="Delete Appointment" onAction="#deleteAppointment"/>
+                <Button text="Clear Form" onAction="#clearForm"/>
+            </HBox>
+
+            <!-- Appointment Table -->
+            <TableView fx:id="appointmentTable" prefHeight="400" prefWidth="700" VBox.vgrow="ALWAYS">
+                <columns>
+                    <TableColumn fx:id="colPatient" text="Patient" prefWidth="150"/>
+                    <TableColumn fx:id="colDoctor" text="Doctor" prefWidth="150"/>
+                    <TableColumn fx:id="colDate" text="Date - Time" prefWidth="150"/>
+                    <TableColumn fx:id="colStatus" text="Status" prefWidth="100"/>
+                    <TableColumn fx:id="colReason" text="Reason" prefWidth="200"/>
+                </columns>
+            </TableView>
+
+        </VBox>
+    </children>
+
+</AnchorPane>
