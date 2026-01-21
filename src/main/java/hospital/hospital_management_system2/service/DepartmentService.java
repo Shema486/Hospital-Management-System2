@@ -36,6 +36,13 @@ public class DepartmentService {
         departmentDao.updateDepartment(department);
         departmentCache.put(department.getDeptId(),department);
     }
+    public Department getDepartmentById(Long id) {
+        return getAllDepartment().stream()
+                .filter(d -> d.getDeptId().equals(id))
+                .findFirst()
+                .orElseThrow(() -> new RuntimeException("Department not found: " + id));
+    }
+
 
 
     public void clearCache(){
