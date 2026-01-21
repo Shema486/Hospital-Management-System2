@@ -13,17 +13,18 @@ public class MainAppController {
     private Label welcomeText;
     @FXML private BorderPane mainPane;
 
-    @FXML
-    protected void onHelloButtonClick() {
+    @FXML protected void onHelloButtonClick() {
         welcomeText.setText("Welcome to JavaFX Application!");
     }
-
     @FXML public void showDepartment(){
         loadView("DepartmentView.fxml");
     }
-    @FXML public void showDoctor(){
-        loadView("DoctorView.fxml");
-    }
+    @FXML public void showDoctor(){loadView("DoctorView.fxml");}
+    @FXML public void showPatient(){loadView("PatientView.fxml");}
+
+
+
+
     private void loadView(String fxmlFile) {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/hospital/hospital_management_system2/" + fxmlFile));
