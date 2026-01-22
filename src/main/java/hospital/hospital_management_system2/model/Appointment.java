@@ -11,6 +11,7 @@ public class Appointment {
     private LocalDateTime appointmentDate;
     private String status;
     private String reason;
+    private String departmentName;
 
     public Appointment(Long appointmentId, Long patientId, Long doctorId, LocalDateTime appointmentDate, String status, String reason) {
         this.appointmentId = appointmentId;
@@ -40,6 +41,7 @@ public class Appointment {
         this.reason = reason;
     }
 
+    public String getDepartment(){return departmentName;}
     public Long getAppointmentId() { return appointmentId; }
     public Long getPatientId() { return patientId; }
     public Long getDoctorId() { return doctorId; }
