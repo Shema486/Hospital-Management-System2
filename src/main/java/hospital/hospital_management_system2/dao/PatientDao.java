@@ -111,26 +111,6 @@ public class PatientDao {
     }
 
 
-    public Patient searchPatientById(long patientId) {
-        String sql = "SELECT * FROM patients WHERE patient_id = ?";
-
-        try (Connection conn = DBConnection.getConnection();
-             PreparedStatement ps = conn.prepareStatement(sql)) {
-
-            ps.setLong(1, patientId);
-
-            try (ResultSet rs = ps.executeQuery()) {
-                if (rs.next()) {
-                    return mapRowToPatient(rs);
-                }
-            }
-
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-
-        return null;
-    }
     public List<Patient> getPatientsPaginated(int limit, int offset){
         List<Patient> patients = new ArrayList<>();
         String sql = "SELECT * FROM patients ORDER BY patient_id LIMIT ? OFFSET ?";
@@ -153,6 +133,27 @@ public class PatientDao {
         }
 
         return patients;
+    }
+    public Patient searchPatientById(long patientId) {
+
+        String sql = "SELECT * FROM patients WHERE patient_id = ?";
+
+        try (Connection conn = DBConnection.getConnection();
+             PreparedStatement ps = conn.prepareStatement(sql)) {
+
+            ps.setLong(1, patientId);
+
+            try (ResultSet rs = ps.executeQuery()) {
+                if (rs.next()) {
+                    return mapRowToPatient(rs);
+                }
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return null;
     }
     public boolean contactExistsInPatients(String contactNumber, long excludePatientId) {
         String sql = "SELECT COUNT(*) FROM patients WHERE contact_number = ? AND patient_id != ?";
@@ -181,4 +182,5 @@ public class PatientDao {
                 rs.getString("address")
         );
     }
+
 }

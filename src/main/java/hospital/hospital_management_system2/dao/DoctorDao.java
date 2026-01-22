@@ -113,6 +113,23 @@ public class DoctorDao {
 
         return doctors;
     }
+    public Doctor getDoctorById(Long Id){
+        String sql = "SELECT * FROM doctors WHERE doctor_id = ?";
+        try(Connection conn = DBConnection.getConnection();
+            PreparedStatement ps = conn.prepareStatement(sql)) {
+            ps.setLong(1,Id);
+            try(ResultSet rs = ps.executeQuery()){
+                while(rs.next()){
+                    return mapRowToDoctor(rs);
+
+                }
+            }
+
+        }catch (SQLException e){
+            e.printStackTrace();
+        }
+        return null;
+    }
     public boolean emailExists(String email, long excludeDoctorId) {
         String sql = "SELECT COUNT(*) FROM doctors WHERE email = ? AND doctor_id != ?";
         try (Connection conn = DBConnection.getConnection();

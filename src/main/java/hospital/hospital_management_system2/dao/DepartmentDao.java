@@ -58,6 +58,21 @@ public class DepartmentDao {
             e.printStackTrace();
         }
     }
+    public Department getDepartmentById(Long deptId){
+        String sql = "SELECT * FROM departments WHERE dept_id = ?";
+        try (Connection conn = DBConnection.getConnection();
+            PreparedStatement ps = conn.prepareStatement(sql)){
+            ps.setLong(1,deptId);
+            try(ResultSet rs = ps.executeQuery()){
+                if (rs.next()) {
+                    return mapToDepartment(rs);
+                }
+            }
+        }catch (SQLException e){
+            e.printStackTrace();
+        }
+        return  null;
+    }
     public void deleteDepartment(Long deptId) {
         String sql = "DELETE FROM departments WHERE dept_id = ?";
         try (Connection conn = DBConnection.getConnection();
