@@ -81,8 +81,7 @@ public class EnvLoader {
                 String normalizedKey = key.toUpperCase();
                 if (!key.isEmpty()) {
                     envVars.put(key, value);
-                    envVars.put(normalizedKey, value);
-                }
+                    envVars.put(normalizedKey, value);}
             }
         }
     }
