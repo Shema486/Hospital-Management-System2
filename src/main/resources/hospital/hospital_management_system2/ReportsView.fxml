@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml"
+      fx:controller="hospital.hospital_management_system2.controller.ReportController"
+      spacing="10" styleClass="page">
+
+    <Label text="Patient Appointment History" styleClass="section-title"/>
+
+    <Separator/>
+
+    <!-- Patient Selection -->
+    <HBox spacing="10" alignment="CENTER_LEFT" styleClass="toolbar">
+        <Label text="Select Patient:" styleClass="label-subtitle"/>
+        <ComboBox fx:id="cbPatient" prefWidth="300"/>
+    </HBox>
+
+    <!-- Patient Info Display -->
+    <VBox spacing="5" styleClass="info-box">
+        <Label fx:id="lblPatientInfo" text="Select a patient to view details" styleClass="label-subtitle"/>
+        <Label fx:id="lblTotalAppointments" text="Total Appointments: 0" styleClass="label-title"/>
+    </VBox>
+
+    <!-- Appointments Table -->
+    <Label text="Appointment History" styleClass="label-title"/>
+    <TableView fx:id="appointmentTable" VBox.vgrow="ALWAYS">
+        <columns>
+            <TableColumn fx:id="colAppId" text="Appointment ID" prefWidth="100"/>
+            <TableColumn fx:id="colDoctor" text="Doctor (Specialization)" prefWidth="220"/>
+            <TableColumn fx:id="colDepartment" text="Department" prefWidth="150"/>
+            <TableColumn fx:id="colDate" text="Date and Time" prefWidth="180"/>
+            <TableColumn fx:id="colStatus" text="Status" prefWidth="100"/>
+        </columns>
+    </TableView>
+</VBox>

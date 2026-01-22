@@ -1,27 +1,48 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.Insets?>
-<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.VBox?>
 
 <BorderPane fx:id="mainPane"
             xmlns:fx="http://javafx.com/fxml"
             fx:controller="hospital.hospital_management_system2.MainAppController">
 
-    <center>
-        <VBox alignment="CENTER" spacing="20.0">
-            <padding>
-                <Insets bottom="20.0" left="20.0" right="20.0" top="20.0"/>
-            </padding>
+    <!-- ===== TOP HEADER ===== -->
+    <top>
+        <Label text="Hospital Management System"
+               BorderPane.alignment="CENTER"
+               style="-fx-font-size: 20px;
+                      -fx-font-weight: bold;
+                      -fx-padding: 15;"/>
+    </top>
 
-            <Label fx:id="welcomeText"/>
-            <Button text="Hello!" onAction="#onHelloButtonClick"/>
-            <Button text="Management of Departments" onAction="#showDepartment"/>
-            <Button text="Management of Doctors" onAction="#showDoctor"/>
-            <Button text="Management of Patients" onAction="#showPatient"/>
+    <!-- ===== LEFT MENU ===== -->
+    <left>
+        <VBox spacing="10"
+              style="-fx-padding: 15;
+                     -fx-background-color: #f4f4f4;">
+
+            <Button text="Departments" onAction="#showDepartment"/>
+            <Button text="Doctors" onAction="#showDoctor"/>
+            <Button text="Patients" onAction="#showPatient"/>
+            <Button text="Appointments" onAction="#showAppointment"/>
+            <Button text="Medical Inventory" onAction="#showInventory"/>
+            <Button text="Prescriptions" onAction="#showPrescription"/>
+            <Button text="Prescription Items" onAction="#showPrescriptionItem"/>
+            <Button text="Patient Feedback" onAction="#showPatientFeedback"/>
+            <Button text="Reports" onAction="#showReport"/>
+
         </VBox>
+    </left>
+
+    <!-- ===== CENTER CONTENT ===== -->
+    <center>
+        <Label fx:id="welcomeText"
+               text="Welcome to the Hospital Management System"
+               BorderPane.alignment="CENTER"
+               style="-fx-font-size: 16px;"/>
     </center>
 
 </BorderPane>
