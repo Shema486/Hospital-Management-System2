@@ -12,9 +12,14 @@ public class DepartmentService {
     private DepartmentDao departmentDao = new DepartmentDao();
     private Map<Long, Department> departmentCache = new HashMap<>();
 
+    public  String getDepartmentNameById(long departmentId) {
+        Department dept = departmentDao.getDepartmentById(departmentId);
+        return dept != null ? dept.getDeptName() : "N/A";
+    }
+
+
     public void addDepartment(Department department) {
         departmentDao.addDepartment(department);
-        //if (department.getDeptId() != null) {<-------------
             departmentCache.put(department.getDeptId(), department);
     }
 

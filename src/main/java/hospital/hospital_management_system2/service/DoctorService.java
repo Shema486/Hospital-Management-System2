@@ -58,4 +58,15 @@ public class DoctorService {
 
         return true;
     }
+
+    public Doctor getDoctorById(Long doctorId) {
+        if (doctorCache.containsKey(doctorId)) {
+            return doctorCache.get(doctorId);
+        }
+        Doctor doctor = doctorDao.getDoctorById(doctorId);
+        if (doctor != null) {
+            doctorCache.put(doctorId, doctor);
+        }
+        return doctor;
+    }
 }
