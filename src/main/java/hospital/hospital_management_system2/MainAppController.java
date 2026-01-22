@@ -21,6 +21,12 @@ public class MainAppController {
     }
     @FXML public void showDoctor(){loadView("DoctorView.fxml");}
     @FXML public void showPatient(){loadView("PatientView.fxml");}
+    @FXML public void showAppointment(){loadView("AppointmentView.fxml");}
+    @FXML public void showInventory(){loadView("MedicalInventoryView.fxml");}
+    @FXML public void showPrescription(){loadView("PrescriptionView.fxml");}
+    @FXML public void showPatientFeedback(){loadView("PatientFeedbackView.fxml");}
+    @FXML public void showPrescriptionItem(){loadView("PrescriptionItemView.fxml");}
+    @FXML public void showReport(){loadView("ReportsView.fxml");}
 
 
 
