@@ -75,4 +75,17 @@
 
             public void setDepartment(Long department) {
                 this.department = department;}
+
+            @Override
+            public String toString() {
+                return "Doctor{" +
+                        "doctorId=" + doctorId +
+                        ", firstName='" + firstName + '\'' +
+                        ", lastName='" + lastName + '\'' +
+                        ", specialization='" + specialization + '\'' +
+                        ", email='" + email + '\'' +
+                        ", phone='" + phone + '\'' +
+                        ", department=" + department +
+                        '}';
+            }
         }
