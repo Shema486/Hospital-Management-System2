@@ -24,15 +24,16 @@
               style="-fx-padding: 15;
                      -fx-background-color: #f4f4f4;">
 
-            <Button text="Departments" onAction="#showDepartment"/>
-            <Button text="Doctors" onAction="#showDoctor"/>
-            <Button text="Patients" onAction="#showPatient"/>
-            <Button text="Appointments" onAction="#showAppointment"/>
-            <Button text="Medical Inventory" onAction="#showInventory"/>
-            <Button text="Prescriptions" onAction="#showPrescription"/>
-            <Button text="Prescription Items" onAction="#showPrescriptionItem"/>
-            <Button text="Patient Feedback" onAction="#showPatientFeedback"/>
-            <Button text="Reports" onAction="#showReport"/>
+            <Button text="Departments" prefWidth="200" onAction="#showDepartment"/>
+            <Button text="Doctors" prefWidth="200" onAction="#showDoctor"/>
+            <Button text="Patients" prefWidth="200" onAction="#showPatient"/>
+            <Button text="Appointments" prefWidth="200" onAction="#showAppointment"/>
+            <Button text="Medical Inventory" prefWidth="200" onAction="#showInventory"/>
+            <Button text="Prescriptions" prefWidth="200" onAction="#showPrescription"/>
+            <Button text="Prescription Items" prefWidth="200" onAction="#showPrescriptionItem"/>
+            <Button text="Patient Feedback" prefWidth="200" onAction="#showPatientFeedback"/>
+            <Button text="Reports" prefWidth="200" onAction="#showReport"/>
+
 
         </VBox>
     </left>
